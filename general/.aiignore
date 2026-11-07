@@ -1,0 +1,33 @@
+# An .aiignore file follows the same syntax as a .gitignore file.
+# .gitignore documentation: https://git-scm.com/docs/gitignore
+
+# Generált riportok, elemzések és cache
+graphify-out/
+.ai/
+.awb/
+.aiassistant/
+
+# Maven build kimenetek
+target/
+*.jar
+*.war
+
+# IDE és eszköz konfigurációk
+../.idea/
+.mvn/
+.git/
+
+# Naplófájlok és ideiglenes fájlok
+*.log
+*.tmp
+
+# Érzékeny adatok, környezeti változók és lokális konfigurációk
+.env
+.env.*
+*secret*
+*credential*
+
+# folders
+dist/
+build/
+out/
