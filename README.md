@@ -63,3 +63,11 @@ AI assistent esetén a skill-ek telepíése az intelliJ-ben egyszerűbb git rep�
 Junie chat esetén nincs lehetőség külön skill megadására.
 
 Az intelliJ jövőbeni fejlesztései alapján az egyes agenteket jobban intergálni az ai assistant-be. Ezért a command-ok, rule-ok és skill-ek működése eltérehet a jövőbeni IntelliJ verziókban!
+
+## Esetleges problémák
+
+* IntelliJ verziók: Az IntelliJ folyamtosan fejleszt és jelenleg is átalakítja az Agentek kezelését és integrálását. Az újabb verziók másképp kezelhetik pl az agent folderek alatti fájlokat. Pl a rule-okat nem a rules mappából veszik hanem az aiassistent/rules mappából.
+* Agentek változása: mivel az IntelliJ ACP -n keresztül kapcsolódik az Agentekhez (nem benne van) ezért az agentek működése is változhat. Pl igazodnak szabványokhoz stb.
+* Project kezelés az IntelliJ-ban: szükséges lehet, hogy több module-t, gitRepót egy workspace alatt kezeljünk. Ezt kétféle képpen lehet megtenni:
+  * közös workspace: azokat a projecteket, amelyeket egybe szeretnénk kezelni egy közös folderben rendezzük. pl backend. Eze lessz az IntelliJ workspace és ezt nyitjuk meg az IntelliJ-ben. Ebben az esetben az AGENTS.md-t és az egyéb agent foldert és file-t közvetlenül a workspace folderébe kell bemásolni. (Ennek a megoldásnak a hátránya, hogy a git kezelés nehézkes lesz, külön kell intézni)
+  * modulok importálása: ha megnyitunk egy modult, akkor a többi modult be lehet importálni a "File → New → Module from Existing Sources" -al. (Ilyenkor az egyes moduluk git kezelése elvileg megmarad. Lásd: "Settings → Version Control → Directory Mappings"). Nem dokumentált, hogy ilynekor az agentek honnan és hogy kezelik a file-aikat. Valószínűleg a fő közös könyvtárban lévő AGENTS.md nem érvényesül, hanem a modulok alatti filok érvényesülnek. Azohban nem garantált, hogy az importált modulok alatti fileok betöltődnek. Ha igen, akkor az egyes Agentek is más módon kezelheti az egyes folderek alatt lévő ai fájlokat. Pl Codex vx Claude
